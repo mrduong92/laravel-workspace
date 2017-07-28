@@ -75,7 +75,7 @@ RUN apt-get install -y ruby \
 
 # Install Composer
 RUN curl -s http://getcomposer.org/installer | php \
-    && mv composer.phar /usr/local/bin/composer \
+    && mv composer.phar /usr/local/bin/composer
 
 # Create symlink
 RUN ln -s /root/.composer/vendor/bin/phpcs /usr/bin/phpcs \

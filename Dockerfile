@@ -69,10 +69,6 @@ RUN curl -sL https://deb.nodesource.com/setup_7.x | bash - \
     && apt-get install -y nodejs \
     && npm install -g gulp-cli bower eslint babel-eslint eslint-plugin-react yarn
 
-# Install SASS
-RUN apt-get install -y ruby \
-    && gem install sass
-
 # Install Composer
 RUN curl -s http://getcomposer.org/installer | php \
     && mv composer.phar /usr/local/bin/composer

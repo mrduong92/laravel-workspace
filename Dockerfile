@@ -59,10 +59,10 @@ RUN apt-get update && apt-get install -y --force-yes \
 RUN sed -i 's/^/;/g' /etc/php/7.1/cli/conf.d/20-xdebug.ini
 
 # Add bin folder of composer to PATH.
-RUN echo "export PATH=${PATH}:/var/www/anagram/vendor/bin:/root/.composer/vendor/bin" >> ~/.bashrc
+RUN echo "export PATH=${PATH}:/var/www/app/vendor/bin:/root/.composer/vendor/bin" >> ~/.bashrc
 
 # Load xdebug Zend extension with phpunit command
-RUN echo "alias phpunit='php -dzend_extension=xdebug.so /var/www/anagram/vendor/bin/phpunit'" >> ~/.bashrc
+RUN echo "alias phpunit='php -dzend_extension=xdebug.so /var/www/app/vendor/bin/phpunit'" >> ~/.bashrc
 
 # Install Nodejs
 RUN curl -sL https://deb.nodesource.com/setup_7.x | bash - \
@@ -76,4 +76,4 @@ RUN curl -s http://getcomposer.org/installer | php \
 # Clean up
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-WORKDIR /var/www/anagram
+WORKDIR /var/www/app
